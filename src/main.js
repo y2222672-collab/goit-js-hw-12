@@ -78,7 +78,7 @@ async function fetchImages(isLoadMore = false) {
       if (totalHits > 0) {
         iziToast.info({
           message: "We're sorry, but you've reached the end of search results.",
-          position: 'bottomCenter',
+          position: 'topRight',
           timeout: 5000,
         });
       }
