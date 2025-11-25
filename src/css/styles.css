@@ -168,3 +168,30 @@ body {
     padding: 0 15px;
   }
 }
+.load-more {
+  margin-bottom: 20px;
+  margin-top: 25px;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+  background-color: #4c6ef5;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.load-more:hover {
+  background-color: #3b5bbf;
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+.load-more:focus {
+  background-color: #2d4a9c;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transform: translateY(1px);
+}
+.load-more.is-hidden {
+  display: none;
+}

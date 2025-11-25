@@ -1,27 +1,27 @@
-
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simplelightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 const gallery = document.querySelector('.gallery');
 const loader = document.querySelector('.loader');
+const loadMoreButton = document.querySelector('.load-more');
 let lightbox;
 
 export function showLoader() {
-    loader.classList.remove('is-hidden');
+  loader.classList.remove('is-hidden');
 }
 
 export function hideLoader() {
-    loader.classList.add('is-hidden');
+  loader.classList.add('is-hidden');
 }
 
 export function clearGallery() {
-    gallery.innerHTML = '';
+  gallery.innerHTML = '';
 }
 
 export function createGallery(images) {
-    const markup = images
-        .map(image => {
-            return `
+  const markup = images
+    .map(image => {
+      return `
                 <li class="gallery-item">
                     <a href="${image.largeImageURL}" class="gallery-link">
                         <img
@@ -38,16 +38,32 @@ export function createGallery(images) {
                     </div>
                 </li>
             `;
-        })
-        .join('');
-    gallery.insertAdjacentHTML('beforeend', markup);
+    })
+    .join('');
+  gallery.insertAdjacentHTML('beforeend', markup);
 
-    if (!lightbox) {
-        lightbox = new SimpleLightbox('.gallery a', {
-            captionsData: 'alt',
-            captionDelay: 250,
-        });
-    } else {
-        lightbox.refresh();
-    }
+  if (!lightbox) {
+    lightbox = new SimpleLightbox('.gallery a', {
+      captionsData: 'alt',
+      captionDelay: 250,
+    });
+  } else {
+    lightbox.refresh();
+  }
+}
+
+export function getGalleryCardHeight() {
+  const firstGalleryItem = document.querySelector('.gallery-item');
+  if (!firstGalleryItem) {
+    return 0;
+  }
+  const cardHeight = firstGalleryItem.getBoundingClientRect().height;
+  return cardHeight;
+}
+export function showLoadMoreButton() {
+  loadMoreButton.classList.remove('is-hidden');
+}
+
+export function hideLoadMoreButton() {
+  loadMoreButton.classList.add('is-hidden');
 }
